@@ -1,240 +1,338 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Privacy Policy - Sugar Tracker UK Grocers</title>
-  <style>
-    :root {
-      --primary: #94abf2;
-      --text: #333;
-      --bg: #fff;
-      --border: #e5e7eb;
-    }
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      line-height: 1.6;
-      color: var(--text);
-      background: var(--bg);
-      padding: 20px;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    header {
-      text-align: center;
-      padding: 40px 0;
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 40px;
-    }
-    header h1 {
-      color: var(--primary);
-      font-size: 2rem;
-      margin-bottom: 10px;
-    }
-    header p {
-      color: #666;
-      font-size: 0.9rem;
-    }
-    h2 {
-      color: var(--text);
-      font-size: 1.4rem;
-      margin: 30px 0 15px;
-      padding-bottom: 8px;
-      border-bottom: 2px solid var(--primary);
-    }
-    h3 {
-      font-size: 1.1rem;
-      margin: 20px 0 10px;
-    }
-    p {
-      margin-bottom: 15px;
-    }
-    ul, ol {
-      margin: 15px 0;
-      padding-left: 25px;
-    }
-    li {
-      margin-bottom: 8px;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 20px 0;
-    }
-    th, td {
-      padding: 12px;
-      text-align: left;
-      border: 1px solid var(--border);
-    }
-    th {
-      background: #f9fafb;
-      font-weight: 600;
-    }
-    .highlight {
-      background: #f0f4ff;
-      padding: 15px;
-      border-radius: 8px;
-      border-left: 4px solid var(--primary);
-      margin: 20px 0;
-    }
-    .highlight strong {
-      color: var(--primary);
-    }
-    footer {
-      margin-top: 50px;
-      padding-top: 20px;
-      border-top: 1px solid var(--border);
-      text-align: center;
-      color: #666;
-      font-size: 0.85rem;
-    }
-    a {
-      color: var(--primary);
-    }
-    code {
-      background: #f3f4f6;
-      padding: 2px 6px;
-      border-radius: 4px;
-      font-size: 0.9em;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>Privacy Policy</h1>
-    <p>Sugar Tracker - UK Grocers Chrome Extension</p>
-    <p><em>Last Updated: December 2025</em></p>
-  </header>
-
-  <main>
-    <section>
-      <h2>Overview</h2>
-      <p>Sugar Tracker - UK Grocers ("the Extension") is a browser extension that displays nutritional sugar and salt content information on UK grocery websites. This privacy policy explains how we handle your data.</p>
-    </section>
-
-    <section>
-      <h2>Data Collection</h2>
-      <div class="highlight">
-        <strong>We do not collect any personal data.</strong>
-        <p style="margin-bottom:0;margin-top:10px;">The Extension operates entirely within your browser and does not transmit any information to external servers owned or operated by us.</p>
+<html lang="en-GB">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sugar Tracker — UK grocery nutrition badges</title>
+    <meta
+      name="description"
+      content="Sugar Tracker is a Chrome extension that overlays UK FSA traffic-light nutrition badges on Tesco, Sainsbury's, ASDA, Waitrose, Ocado, Morrisons, Co-op, and Iceland. No sign-up, no analytics, privacy-first."
+    />
+    <link rel="icon" href="icons/icon32.png" type="image/png" />
+    <style>
+      :root {
+        --periwinkle: #5b6abf;
+        --periwinkle-deep: #4f5db3;
+        --periwinkle-light: #94abf2;
+        --text-primary: #374151;
+        --text-secondary: #4b5563;
+        --text-tertiary: #6b7280;
+        --surface-card: #ffffff;
+        --surface-body: #f7f8fa;
+        --border-soft: #eef0f3;
+        --okabe-low: #0072b2;
+        --okabe-medium: #e69f00;
+        --okabe-high: #d55e00;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
+          'Helvetica Neue', Arial, sans-serif;
+        line-height: 1.6;
+        color: var(--text-primary);
+        background: var(--surface-body);
+      }
+      .hero {
+        background: linear-gradient(135deg, var(--periwinkle) 0%, var(--periwinkle-deep) 100%);
+        color: #ffffff;
+        padding: 64px 24px 56px;
+        text-align: center;
+      }
+      .hero img {
+        width: 64px;
+        height: 64px;
+        margin-bottom: 20px;
+      }
+      .hero h1 {
+        font-size: 40px;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+        margin-bottom: 12px;
+      }
+      .hero p {
+        font-size: 17px;
+        opacity: 0.92;
+        max-width: 560px;
+        margin: 0 auto;
+      }
+      .install-row {
+        display: flex;
+        gap: 14px;
+        justify-content: center;
+        margin-top: 28px;
+        flex-wrap: wrap;
+      }
+      .install-cta {
+        display: inline-block;
+        background: #ffffff;
+        color: var(--periwinkle-deep);
+        padding: 12px 22px;
+        border-radius: 8px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: transform 120ms ease, box-shadow 120ms ease;
+        box-shadow: 0 6px 12px -6px rgba(0, 0, 0, 0.2);
+      }
+      .install-cta:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 10px 18px -6px rgba(0, 0, 0, 0.25);
+      }
+      .install-cta-secondary {
+        background: transparent;
+        color: #ffffff;
+        border: 1px solid rgba(255, 255, 255, 0.45);
+      }
+      main {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 56px 24px;
+      }
+      .section {
+        background: var(--surface-card);
+        border-radius: 14px;
+        padding: 28px 32px;
+        margin-bottom: 24px;
+        box-shadow: 0 8px 16px -10px rgba(79, 93, 179, 0.12);
+      }
+      .section h2 {
+        font-size: 21px;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 12px;
+      }
+      .section p,
+      .section li {
+        color: var(--text-secondary);
+        font-size: 15px;
+      }
+      .section ul,
+      .section ol {
+        padding-left: 22px;
+      }
+      .section li {
+        margin-bottom: 8px;
+      }
+      .grocer-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 8px;
+        margin-top: 16px;
+      }
+      .grocer-chip {
+        background: #eef0fb;
+        color: var(--periwinkle-deep);
+        padding: 8px 12px;
+        border-radius: 6px;
+        font-weight: 600;
+        font-size: 13px;
+        text-align: center;
+        letter-spacing: 0.02em;
+      }
+      .levels {
+        display: flex;
+        gap: 12px;
+        margin-top: 16px;
+        flex-wrap: wrap;
+      }
+      .level {
+        flex: 1;
+        min-width: 150px;
+        padding: 14px;
+        border-radius: 8px;
+        border-left: 4px solid;
+      }
+      .level-low {
+        background: rgba(0, 114, 178, 0.08);
+        border-left-color: var(--okabe-low);
+      }
+      .level-medium {
+        background: rgba(230, 159, 0, 0.1);
+        border-left-color: var(--okabe-medium);
+      }
+      .level-high {
+        background: rgba(213, 94, 0, 0.1);
+        border-left-color: var(--okabe-high);
+      }
+      .level strong {
+        display: block;
+        font-size: 14px;
+        margin-bottom: 4px;
+        color: var(--text-primary);
+      }
+      .level small {
+        font-size: 13px;
+        color: var(--text-tertiary);
+      }
+      footer {
+        text-align: center;
+        padding: 32px 24px;
+        color: var(--text-tertiary);
+        font-size: 14px;
+      }
+      footer a {
+        color: var(--periwinkle-deep);
+        text-decoration: none;
+        margin: 0 6px;
+      }
+      footer a:hover {
+        text-decoration: underline;
+      }
+      @media (max-width: 480px) {
+        .hero h1 {
+          font-size: 30px;
+        }
+        .section {
+          padding: 24px 22px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="hero">
+      <img src="icons/icon128.png" alt="Sugar Tracker icon" />
+      <h1>Sugar Tracker</h1>
+      <p>
+        Privacy-first nutrition badges on every UK grocery product page. UK FSA traffic-light
+        thresholds, Okabe-Ito colourblind-safe palette, no sign-up.
+      </p>
+      <div class="install-row">
+        <a
+          class="install-cta"
+          href="https://chrome.google.com/webstore/detail/sugar-tracker/lemmcomgfddgkikecahgmboapjfeofpb"
+          rel="noopener noreferrer"
+          >Install for Chrome</a
+        >
+        <a
+          class="install-cta install-cta-secondary"
+          href="https://github.com/X0x888/Sugar-Tracker/issues"
+          rel="noopener noreferrer"
+          >Report an issue</a
+        >
       </div>
     </section>
 
-    <section>
-      <h2>Data Storage</h2>
-      <p>The Extension stores the following data locally on your device using Chrome's built-in storage API:</p>
-      <ol>
-        <li><strong>Cached Nutrition Data:</strong> Sugar and salt values for products you've viewed, stored to improve performance and reduce repeated page loads.</li>
-        <li><strong>User Preferences:</strong> Your settings such as whether the extension is enabled and which nutrients to display.</li>
-      </ol>
-      <p>This data:</p>
-      <ul>
-        <li>Never leaves your device</li>
-        <li>Is not shared with any third parties</li>
-        <li>Can be cleared at any time through the extension settings or by uninstalling the extension</li>
-      </ul>
-    </section>
+    <main>
+      <section class="section">
+        <h2>Eight UK grocers, one badge system</h2>
+        <p>
+          Sugar Tracker overlays a small badge on each product on the listing and detail pages of:
+        </p>
+        <div class="grocer-grid">
+          <span class="grocer-chip">Tesco</span>
+          <span class="grocer-chip">Sainsbury&rsquo;s</span>
+          <span class="grocer-chip">ASDA</span>
+          <span class="grocer-chip">Waitrose</span>
+          <span class="grocer-chip">Ocado</span>
+          <span class="grocer-chip">Morrisons</span>
+          <span class="grocer-chip">Co-op</span>
+          <span class="grocer-chip">Iceland</span>
+        </div>
+      </section>
 
-    <section>
-      <h2>Website Access</h2>
-      <p>The Extension requires access to the following websites to function:</p>
-      <ul>
-        <li>waitrose.com</li>
-        <li>ocado.com</li>
-        <li>sainsburys.co.uk</li>
-      </ul>
-      <p>This access is used solely to:</p>
-      <ul>
-        <li>Read nutrition information from product pages</li>
-        <li>Display sugar/salt badges on product images</li>
-      </ul>
-      <p>The Extension does <strong>not</strong>:</p>
-      <ul>
-        <li>Track your browsing history</li>
-        <li>Collect personal information</li>
-        <li>Store or transmit your shopping habits</li>
-        <li>Access any data outside of these specific grocery websites</li>
-      </ul>
-    </section>
+      <section class="section">
+        <h2>Threshold presets — UK FSA traffic-light by default</h2>
+        <p>
+          Out of the box, sugar, salt, and saturates use the official UK Front-of-Pack
+          thresholds. Health Modes in the popup swap in tighter bands for one nutrient at a
+          time — Reduced-Sodium, Reduced-Sugar, Reduced-Saturates — and the badge, tooltip
+          and Nutrition Guide all follow whichever preset is active. The defaults:
+        </p>
+        <div class="levels">
+          <div class="level level-low">
+            <strong>Low</strong>
+            <small>Sugar &le; 5g, Salt &le; 0.3g, Saturates &le; 1.5g per 100g</small>
+          </div>
+          <div class="level level-medium">
+            <strong>Medium</strong>
+            <small>Between low and high — moderate consumption</small>
+          </div>
+          <div class="level level-high">
+            <strong>High</strong>
+            <small>Sugar &gt; 22.5g, Salt &gt; 1.5g, Saturates &gt; 5g per 100g</small>
+          </div>
+        </div>
+        <p style="margin-top: 16px">
+          Calories use a published composite band (low &le; 40 kcal, high &gt; 275 kcal per 100g);
+          the FSA does not publish a calorie traffic-light.
+        </p>
+      </section>
 
-    <section>
-      <h2>Third-Party Services</h2>
-      <p>The Extension does not use any third-party analytics, tracking, or advertising services.</p>
-    </section>
+      <section class="section" id="early-access">
+        <h2>Early access — Reduced-Sugar and Reduced-Saturates</h2>
+        <p>
+          Two Health Modes are built and shipping in the extension but are not yet
+          selectable: <strong>Reduced-Sugar</strong> and <strong>Reduced-Saturates</strong>.
+          They tighten the bands for one nutrient while the other three stay on the FSA
+          defaults, for shoppers actively cutting one thing rather than reading every label.
+        </p>
+        <ul>
+          <li>
+            <strong>Reduced-Sugar</strong> — low &le; 0.5g, high &gt; 5g per 100g.
+            Source: EU Reg 1924/2006 Annex &ldquo;sugars-free&rdquo; plus the UK FSA
+            low/medium boundary.
+          </li>
+          <li>
+            <strong>Reduced-Saturates</strong> — low &le; 0.1g, high &gt; 1.5g per 100g.
+            Source: EU Reg 1924/2006 Annex &ldquo;saturated fat-free&rdquo; plus the UK FSA
+            low/medium boundary.
+          </li>
+        </ul>
+        <p style="margin-top: 16px">
+          Nothing is charged and there is no sign-up. If you want either mode switched on,
+          say so on the
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSff82gLoTJrVhm2ioEDwMmPZ-krj229BQ6OyrHnVOjeTzybow/viewform"
+            rel="noopener noreferrer"
+            >feedback form</a
+          >
+          — that is the only route, and the extension itself sends nothing.
+        </p>
+      </section>
 
-    <section>
-      <h2>Data Requests to Grocery Websites</h2>
-      <p>When you browse grocery websites with the Extension enabled, it may make requests to those websites' APIs to retrieve nutrition information. These requests:</p>
-      <ul>
-        <li>Are made directly from your browser</li>
-        <li>Do not pass through our servers</li>
-        <li>Are subject to the respective grocery website's privacy policy</li>
-      </ul>
-    </section>
+      <section class="section">
+        <h2>Privacy-first by design</h2>
+        <ul>
+          <li>No sign-up, no account, no external servers.</li>
+          <li>Settings live in <code>chrome.storage.sync</code>; nutrition cache in <code>chrome.storage.local</code>.</li>
+          <li>No analytics, no telemetry, no third-party SDKs.</li>
+          <li>Diagnostics export is local-only — pasted into a feedback form by the user, never auto-sent.</li>
+        </ul>
+        <p style="margin-top: 16px">
+          Sugar Tracker's use and transfer of information received from Google APIs to any
+          other app will adhere to the
+          <a href="https://developer.chrome.com/docs/webstore/user_data_faq" rel="noopener noreferrer">Chrome Web Store User Data Policy</a>,
+          including the Limited Use requirements. The extension does not transfer user data to
+          any external service; it operates entirely on the local device.
+        </p>
+      </section>
 
-    <section>
-      <h2>Permissions Explained</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Permission</th>
-            <th>Purpose</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><code>storage</code></td>
-            <td>Store cached nutrition data and your preferences locally</td>
-          </tr>
-          <tr>
-            <td><code>scripting</code></td>
-            <td>Inject the extension's display code into supported grocery websites</td>
-          </tr>
-          <tr>
-            <td>Host permissions</td>
-            <td>Access waitrose.com, ocado.com, and sainsburys.co.uk to read and display nutrition data</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
+      <section class="section">
+        <h2>Source &amp; support</h2>
+        <p>
+          Sugar Tracker is proprietary and the code repository is private, so the source is
+          not publicly browsable today. Unminified source is supplied to Chrome Web Store
+          reviewers on request, and the privacy claims on this page are verifiable against
+          the extension's declared permissions on its store listing.
+        </p>
+        <p style="margin-top: 16px">
+          Bug reports and feature requests are welcome on the
+          <a href="https://github.com/X0x888/Sugar-Tracker/issues" rel="noopener noreferrer"
+            >issue tracker</a
+          >, which is also where the extension's &ldquo;Report this site&rdquo; button sends
+          you.
+        </p>
+      </section>
+    </main>
 
-    <section>
-      <h2>Children's Privacy</h2>
-      <p>The Extension does not knowingly collect any information from children under 13 years of age.</p>
-    </section>
-
-    <section>
-      <h2>Changes to This Policy</h2>
-      <p>We may update this privacy policy from time to time. Any changes will be reflected in the "Last Updated" date at the top of this policy.</p>
-    </section>
-
-    <section>
-      <h2>Your Rights</h2>
-      <p>Since we do not collect any personal data, there is no personal data to access, modify, or delete. You can remove all locally stored data by:</p>
-      <ol>
-        <li>Using the "Clear Cache" option in the extension popup</li>
-        <li>Uninstalling the extension</li>
-      </ol>
-    </section>
-
-    <section>
-      <h2>Contact</h2>
-      <p>If you have questions about this privacy policy, please use our <a href="https://docs.google.com/forms/d/e/1FAIpQLSff82gLoTJrVhm2ioEDwMmPZ-krj229BQ6OyrHnVOjeTzybow/viewform" target="_blank" rel="noopener noreferrer">feedback form</a>.</p>
-    </section>
-  </main>
-
-  <footer>
-    <p>Your privacy is important to us. This extension processes all data locally in your browser with zero external data transmission.</p>
-    <p>&copy; 2025 Sugar Tracker Extension</p>
-    <div class="nav-links" style="margin-top: 15px;">
-      <a href="https://x0x888.github.io/Sugar-Tracker/">Privacy Policy</a> ·
-      <a href="https://x0x888.github.io/Sugar-Tracker/terms.html">Terms of Service</a>
-    </div>
-  </footer>
-</body>
+    <footer>
+      <a href="privacy.html">Privacy Policy</a> ·
+      <a href="terms.html">Terms of Service</a> ·
+      <a href="https://github.com/X0x888/Sugar-Tracker">GitHub</a>
+    </footer>
+  </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -108,13 +108,23 @@
   <header>
     <h1>Privacy Policy</h1>
     <p>Sugar Tracker - UK Grocers Chrome Extension</p>
-    <p><em>Last Updated: April 12, 2026</em></p>
+    <p><em>Last Updated: May 9, 2026</em></p>
   </header>
 
   <main>
     <section>
+      <h3>Recent updates</h3>
+      <ul>
+        <li><strong>2026-05-09 (v1.11.0):</strong> Manifest gains the <code>alarms</code> permission. The alarm only schedules a daily <em>local</em> maintenance sweep (prunes stale selector-health and diagnostics-ring entries). No new data is collected, transmitted, or shared. v1.7.0&ndash;v1.10.0 shipped security hardening (sender-trust on the page-fetch bridge, post-redirect URL re-validation, per-window token bucket) but introduced no new data surfaces.</li>
+        <li><strong>2026-05-06 (v1.6.0):</strong> No new local-storage surfaces; clarification of existing diagnostics-ring privacy contract. Tooltip "Report wrong data" link now functional.</li>
+        <li><strong>2026-05-06 (v1.5.0):</strong> Privacy-policy URL strip centralized at the diagnostics-ring boundary so origin+pathname is the only URL shape ever recorded. Cross-tab cache merge now structurally validated.</li>
+        <li><strong>2026-04-2x (v1.4.x):</strong> Added latency histogram (per-bucket scan→first-badge counts), service-worker startup counter, and per-site selector-health telemetry — all stored locally; never transmitted.</li>
+      </ul>
+    </section>
+
+    <section>
       <h2>Overview</h2>
-      <p>Sugar Tracker - UK Grocers ("the Extension") is a browser extension that displays nutritional sugar and salt content information on UK grocery websites. This privacy policy explains how we handle your data.</p>
+      <p>Sugar Tracker - UK Grocers ("the Extension") is a browser extension that displays nutritional sugar, salt, saturates, and calories content information on UK grocery websites. This privacy policy explains how we handle your data.</p>
     </section>
 
     <section>
@@ -129,12 +139,14 @@
       <h2>Data Storage</h2>
       <p>The Extension stores the following data in Chrome's built-in storage APIs on your device:</p>
       <ol>
-        <li><strong>Cached Nutrition Data:</strong> Sugar and salt values for products you've viewed, stored in <code>chrome.storage.local</code> to improve performance and reduce repeated page loads.</li>
-        <li><strong>User Preferences:</strong> Your settings such as whether the extension is enabled and which nutrients to display, stored in <code>chrome.storage.sync</code>.</li>
+        <li><strong>Cached Nutrition Data:</strong> Nutrition values (sugar, salt, saturates, calories) for products you've viewed, stored in <code>chrome.storage.local</code> to improve performance and reduce repeated page loads. Each entry carries a small schema-version stamp so a future update can discard incompatible shapes cleanly.</li>
+        <li><strong>User Preferences:</strong> Your settings such as whether the extension is enabled, which nutrients to display, and your chosen colour theme, stored in <code>chrome.storage.sync</code>.</li>
+        <li><strong>Technical Diagnostics:</strong> A small, capped ring buffer of the most recent extension errors and rate-limit events (origin and pathname only &mdash; no query strings, no cookies, no personal content), stored in <code>chrome.storage.local</code> under a dedicated key. This is what the &ldquo;Copy Diagnostics&rdquo; button in the popup footer exports for you to paste into a bug report. The ring never transmits on its own.</li>
+        <li><strong>Selector-Health Telemetry:</strong> A per-site tally of which CSS selector matched each product container, stored locally so the popup can show a &ldquo;Needs review&rdquo; chip when a grocer's page layout drifts. No product URLs or content are stored with this.</li>
       </ol>
       <p>This data:</p>
       <ul>
-        <li>Never leaves your device</li>
+        <li>Never leaves your device unless you explicitly copy and share diagnostics</li>
         <li>Is not shared with any third parties</li>
         <li>Can be cleared by removing the extension or clearing the extension's local and sync storage</li>
       </ul>
@@ -150,13 +162,13 @@
         <li>tesco.com</li>
         <li>asda.com</li>
         <li>morrisons.com</li>
-        <li>iceland.co.uk</li>
         <li>coop.co.uk</li>
+        <li>iceland.co.uk</li>
       </ul>
       <p>This access is used solely to:</p>
       <ul>
         <li>Read nutrition information from product pages</li>
-        <li>Display sugar/salt badges on product images</li>
+        <li>Display sugar, salt, saturates, and calorie badges on product images</li>
       </ul>
       <p>The Extension does <strong>not</strong>:</p>
       <ul>
@@ -180,6 +192,14 @@
         <li>Do not pass through our servers</li>
         <li>Are subject to the respective grocery website's privacy policy</li>
       </ul>
+      <h3>Authenticated API Requests (Ocado, Sainsbury's)</h3>
+      <p>Some retailers (currently Ocado and Sainsbury's) only expose complete nutrition data through JSON APIs that require an authenticated session. When the Extension cannot read nutrition values from the visible HTML, it falls back to these APIs and sends the retailer's own session cookies with the request &mdash; the same cookies your browser already sends when you navigate the site normally. Specifically:</p>
+      <ul>
+        <li>These requests are always <strong>GET</strong> (read-only). The Extension never writes cart data, submits orders, or modifies your account.</li>
+        <li>Requests are only issued while you are actively browsing a supported grocer tab. Session cookies never leave the original retailer's origin.</li>
+        <li>No cookies, session identifiers, or request bodies are ever sent to any third party or to servers we operate &mdash; there are no such servers.</li>
+        <li>If you do not want authenticated fallback requests, you can either disable the Extension for a specific site via the popup, or sign out of Ocado / Sainsbury's before shopping &mdash; badges will still appear from the page HTML where possible.</li>
+      </ul>
     </section>
 
     <section>
@@ -195,6 +215,10 @@
           <tr>
             <td><code>storage</code></td>
             <td>Store cached nutrition data locally and save extension settings in Chrome storage</td>
+          </tr>
+          <tr>
+            <td><code>alarms</code></td>
+            <td>Schedule a daily background sweep that prunes stale selector-health and diagnostics-ring entries from local storage. The alarm runs only on your device and never communicates externally.</td>
           </tr>
           <tr>
             <td>Host permissions</td>
@@ -233,8 +257,8 @@
     <p>Your privacy is important to us. This extension processes all data locally in your browser with zero external data transmission.</p>
     <p>&copy; 2026 Sugar Tracker Extension</p>
     <div class="nav-links" style="margin-top: 15px;">
-      <a href="https://x0x888.github.io/Sugar-Tracker/">Privacy Policy</a> ·
-      <a href="https://x0x888.github.io/Sugar-Tracker/terms.html">Terms of Service</a>
+      <a href="privacy.html">Privacy Policy</a> ·
+      <a href="terms.html">Terms of Service</a>
     </div>
   </footer>
 </body>
