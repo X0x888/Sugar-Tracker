@@ -108,7 +108,7 @@
   <header>
     <h1>Privacy Policy</h1>
     <p>Sugar Tracker - UK Grocers Chrome Extension</p>
-    <p><em>Last Updated: May 9, 2026</em></p>
+    <p><em>Last Updated: August 1, 2026</em></p>
   </header>
 
   <main>
@@ -143,6 +143,7 @@
         <li><strong>User Preferences:</strong> Your settings such as whether the extension is enabled, which nutrients to display, and your chosen colour theme, stored in <code>chrome.storage.sync</code>.</li>
         <li><strong>Technical Diagnostics:</strong> A small, capped ring buffer of the most recent extension errors and rate-limit events (origin and pathname only &mdash; no query strings, no cookies, no personal content), stored in <code>chrome.storage.local</code> under a dedicated key. This is what the &ldquo;Copy Diagnostics&rdquo; button in the popup footer exports for you to paste into a bug report. The ring never transmits on its own.</li>
         <li><strong>Selector-Health Telemetry:</strong> A per-site tally of which CSS selector matched each product container, stored locally so the popup can show a &ldquo;Needs review&rdquo; chip when a grocer's page layout drifts. No product URLs or content are stored with this.</li>
+        <li><strong>Viewed-Product Record:</strong> A list of identifiers for products you have already seen on the supported grocers, stored in <code>chrome.storage.local</code> and capped at 5,000 entries (oldest dropped first). Each identifier is the retailer's own product code where the page exposes one, otherwise a normalised product name, otherwise the product page's URL with any query string and fragment stripped. The extension uses it only to tell a product you have seen before from one you have not, so first-seen badge animations do not replay on every visit. It records <em>which</em> products, not when, how often, or in what order, and it never leaves your device.</li>
       </ol>
       <p>This data:</p>
       <ul>
@@ -172,11 +173,22 @@
       </ul>
       <p>The Extension does <strong>not</strong>:</p>
       <ul>
-        <li>Track your browsing history</li>
-        <li>Collect personal information</li>
-        <li>Store or transmit your shopping habits</li>
+        <li>See or record your browsing anywhere outside the eight grocery domains listed above &mdash; it has no access to any other site, so no other page you visit can be observed or stored</li>
+        <li>Collect personal information &mdash; no name, email address, postal address, account, or payment details</li>
+        <li>Transmit your shopping activity anywhere. The viewed-product record and nutrition cache described under Data Storage are written to your device and stay there; they are never uploaded to us or shared with any third party</li>
+        <li>Build a profile of you, infer anything about your health, or use the viewed-product record for any purpose other than telling a product you have already seen from a new one</li>
         <li>Access any data outside of these specific grocery websites</li>
       </ul>
+      <p>
+        For the same reason, the Extension's Chrome Web Store listing declares the
+        <strong>Website content</strong> and <strong>Web history</strong> data categories. Google
+        requires disclosure of data an extension handles &ldquo;even when data is processed or
+        stored locally on a user's device and is not transmitted to external servers or third
+        parties&rdquo;. Reading nutrition text from a retailer's page is website content, and the
+        bounded viewed-product record is a local record of grocery product pages you have opened.
+        Both stay on your device. The declaration describes what the Extension reads and stores; this
+        policy describes what happens to it afterwards, which is nothing beyond your own browser.
+      </p>
     </section>
 
     <section>
